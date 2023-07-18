@@ -574,15 +574,19 @@
                     </div> 
   </section>
   
-        <footer class="footer">
-            <div class="container">
-                <span class="copyright uppercase">© 2021 Kamrul Hossain</span>
-            </div>
-        </footer>
+<footer>
+  <p>&copy; <span id="currentYear"></span> KAMRUL HOSSAIN. All rights reserved.</p>
+</footer>
+
+<script>
+  const currentYear = new Date().getFullYear();
+  document.getElementById('currentYear').textContent = currentYear;
+</script>
+
 
     </main>
 
-    <!-- Go to top button -->
+    <!-- Go to the top button -->
     <a href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
 
     <!-- SCRIPTS -->
