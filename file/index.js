@@ -45,7 +45,7 @@ function displayUserRepos(repos) {
         }))
     };
     console.log(response);
-    document.body.innerHTML = `<pre>${JSON.stringify(response, null, 2)}</pre>`;
+    document.getElementById('repo-container').innerText = JSON.stringify(response, null, 2);
 }
 
 function displayRepoDetails(repoData) {
@@ -61,7 +61,7 @@ function displayRepoDetails(repoData) {
         }
     };
     console.log(response);
-    document.body.innerHTML = `<pre>${JSON.stringify(response, null, 2)}</pre>`;
+    document.getElementById('repo-container').innerText = JSON.stringify(response, null, 2);
 }
 
 function displayError(message) {
@@ -70,7 +70,7 @@ function displayError(message) {
         message: message
     };
     console.log(response);
-    document.body.innerHTML = `<pre>${JSON.stringify(response, null, 2)}</pre>`;
+    document.getElementById('repo-container').innerText = JSON.stringify(response, null, 2);
 }
 
 // Define the URL parsing function
