@@ -1,4 +1,3 @@
-<script>
 async function fetchUserRepos(username) {
     try {
         const response = await fetch(`https://api.github.com/users/${username}/repos`);
@@ -33,7 +32,7 @@ function displayUserRepos(username, repos) {
         repoDiv.classList.add('repo');
 
         const repoLink = document.createElement('a');
-        repoLink.href = `/${username}/${repo.name}`;
+        repoLink.href = `/file/${username}/${repo.name}`;
         repoLink.classList.add('link');
         repoLink.textContent = repo.name;
 
@@ -55,17 +54,23 @@ function displayRepoDetails(repoData) {
 
 function parseUrl() {
     const pathArray = window.location.pathname.split('/').filter(Boolean);
-    if (pathArray.length === 1) {
-        const username = pathArray[0];
+    if (pathArray.length === 2 && pathArray[0] === 'file') {
+        const username = pathArray[1];
         fetchUserRepos(username);
-    } else if (pathArray.length === 2) {
-        const username = pathArray[0];
-        const repo = pathArray[1];
+    } else if (pathArray.length === 3 && pathArray[0] === 'file') {
+        const username = pathArray[1];
+        const repo = pathArray[2];
         fetchRepoDetails(username, repo);
     } else {
         document.getElementById('repo-container').innerHTML = `<p>Please provide a GitHub username in the URL.</p>`;
     }
 }
 
-window.onload = parseUrl;
-</script>
+window.onload = function() {
+    document.body.innerHTML = `
+        <div style="padding: 20px;">
+            <div id="repo-container"></div>
+        </div>
+    `;
+    parseUrl();
+};
