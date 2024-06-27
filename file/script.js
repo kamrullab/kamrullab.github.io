@@ -71,13 +71,13 @@ function displayError(message) {
 function parseUrl() {
     const pathArray = window.location.pathname.split('/').filter(Boolean);
     console.log('Parsed URL path:', pathArray);
-    if (pathArray.length === 2 && pathArray[0] === 'file') {
-        const username = pathArray[1];
-        fetchUserRepos(username);
-    } else if (pathArray.length === 3 && pathArray[0] === 'file') {
+    if (pathArray.length === 3 && pathArray[0] === 'file') {
         const username = pathArray[1];
         const repo = pathArray[2];
         fetchRepoDetails(username, repo);
+    } else if (pathArray.length === 2 && pathArray[0] === 'file') {
+        const username = pathArray[1];
+        fetchUserRepos(username);
     } else {
         displayError('Please provide a GitHub username in the URL.');
     }
