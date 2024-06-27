@@ -5,9 +5,9 @@ async function fetchUserRepos(username) {
             throw new Error('User not found');
         }
         const repos = await response.json();
-        displayUserRepos(username, repos);
+        displayUserRepos(repos);
     } catch (error) {
-        document.getElementById('repo-container').innerHTML = `<p>${error.message}</p>`;
+        displayError(error.message);
     }
 }
 
@@ -20,36 +20,46 @@ async function fetchRepoDetails(username, repo) {
         const repoData = await response.json();
         displayRepoDetails(repoData);
     } catch (error) {
-        document.getElementById('repo-container').innerHTML = `<p>${error.message}</p>`;
+        displayError(error.message);
     }
 }
 
-function displayUserRepos(username, repos) {
-    const repoContainer = document.getElementById('repo-container');
-    repoContainer.innerHTML = `<h1>Repositories of ${username}</h1>`;
-    repos.forEach(repo => {
-        const repoDiv = document.createElement('div');
-        repoDiv.classList.add('repo');
-
-        const repoLink = document.createElement('a');
-        repoLink.href = `/file/${username}/${repo.name}`;
-        repoLink.classList.add('link');
-        repoLink.textContent = repo.name;
-
-        repoDiv.appendChild(repoLink);
-        repoContainer.appendChild(repoDiv);
-    });
+function displayUserRepos(repos) {
+    const response = {
+        status: 'success',
+        data: repos.map(repo => ({
+            name: repo.name,
+            full_name: repo.full_name,
+            description: repo.description,
+            html_url: repo.html_url,
+            stargazers_count: repo.stargazers_count,
+            forks_count: repo.forks_count
+        }))
+    };
+    document.body.innerText = JSON.stringify(response, null, 2);
 }
 
 function displayRepoDetails(repoData) {
-    const repoContainer = document.getElementById('repo-container');
-    repoContainer.innerHTML = `
-        <h1>${repoData.full_name}</h1>
-        <p class="description">${repoData.description || 'No description available.'}</p>
-        <p>Stars: ${repoData.stargazers_count}</p>
-        <p>Forks: ${repoData.forks_count}</p>
-        <p><a class="link" href="${repoData.html_url}" target="_blank">View on GitHub</a></p>
-    `;
+    const response = {
+        status: 'success',
+        data: {
+            name: repoData.name,
+            full_name: repoData.full_name,
+            description: repoData.description,
+            html_url: repoData.html_url,
+            stargazers_count: repoData.stargazers_count,
+            forks_count: repoData.forks_count
+        }
+    };
+    document.body.innerText = JSON.stringify(response, null, 2);
+}
+
+function displayError(message) {
+    const response = {
+        status: 'error',
+        message: message
+    };
+    document.body.innerText = JSON.stringify(response, null, 2);
 }
 
 function parseUrl() {
@@ -62,15 +72,8 @@ function parseUrl() {
         const repo = pathArray[2];
         fetchRepoDetails(username, repo);
     } else {
-        document.getElementById('repo-container').innerHTML = `<p>Please provide a GitHub username in the URL.</p>`;
+        displayError('Please provide a GitHub username in the URL.');
     }
 }
 
-window.onload = function() {
-    document.body.innerHTML = `
-        <div style="padding: 20px;">
-            <div id="repo-container"></div>
-        </div>
-    `;
-    parseUrl();
-};
+window.onload = parseUrl;
