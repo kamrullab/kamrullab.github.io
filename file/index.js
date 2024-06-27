@@ -1,3 +1,4 @@
+// Define the fetch functions
 async function fetchUserRepos(username) {
     try {
         console.log(`Fetching repositories for user: ${username}`);
@@ -30,6 +31,7 @@ async function fetchRepoDetails(username, repo) {
     }
 }
 
+// Define the display functions
 function displayUserRepos(repos) {
     const response = {
         status: 'success',
@@ -42,7 +44,8 @@ function displayUserRepos(repos) {
             forks_count: repo.forks_count
         }))
     };
-    document.getElementById('repo-container').innerText = JSON.stringify(response, null, 2);
+    console.log(response);
+    document.body.innerHTML = `<pre>${JSON.stringify(response, null, 2)}</pre>`;
 }
 
 function displayRepoDetails(repoData) {
@@ -57,7 +60,8 @@ function displayRepoDetails(repoData) {
             forks_count: repoData.forks_count
         }
     };
-    document.getElementById('repo-container').innerText = JSON.stringify(response, null, 2);
+    console.log(response);
+    document.body.innerHTML = `<pre>${JSON.stringify(response, null, 2)}</pre>`;
 }
 
 function displayError(message) {
@@ -65,9 +69,11 @@ function displayError(message) {
         status: 'error',
         message: message
     };
-    document.getElementById('repo-container').innerText = JSON.stringify(response, null, 2);
+    console.log(response);
+    document.body.innerHTML = `<pre>${JSON.stringify(response, null, 2)}</pre>`;
 }
 
+// Define the URL parsing function
 function parseUrl() {
     const pathArray = window.location.pathname.split('/').filter(Boolean);
     console.log('Parsed URL path:', pathArray);
@@ -83,4 +89,5 @@ function parseUrl() {
     }
 }
 
+// Set the onload event
 window.onload = parseUrl;
