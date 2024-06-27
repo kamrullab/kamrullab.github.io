@@ -773,26 +773,27 @@
 
 
   
-<footer class="footer">
-    <div class="container">
-        <span id="copyright" class="copyright uppercase">© 2021 Kamrul Hossain</span>
-    </div>
-</footer>
- </main>
+       <footer class="footer">
+            <div class="container">
+                <span id="currentDateTime" class="current-datetime"></span>
+                <br>
+                <span id="copyright" class="copyright uppercase">© 2021 Kamrul Hossain</span>
+            </div>
+        </footer>
+    </main>
 
-	
     <script>
         // Function to format date as DD-MM-YYYY and time in BD (Bangladesh) timezone as H:M:S AM/PM
         function formatDateTime(date) {
             let options = { timeZone: 'Asia/Dhaka', hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            
+
             let day = ('0' + date.getDate()).slice(-2); // Pad day with leading zero
             let month = ('0' + (date.getMonth() + 1)).slice(-2); // Add 1 to month and pad with leading zero
             let year = date.getFullYear();
-            
+
             let timeString = date.toLocaleString('en-US', options);
             let [time, period] = timeString.split(' ');
-            
+
             return `${day}-${month}-${year}, ${time} ${period}`;
         }
 
