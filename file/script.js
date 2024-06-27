@@ -9,13 +9,17 @@ document.getElementById('fetchRepos').addEventListener('click', function() {
 
 async function fetchUserRepos(username) {
     try {
+        console.log(`Fetching repositories for user: ${username}`);
         const response = await fetch(`https://api.github.com/users/${username}/repos`);
+        console.log('Response status:', response.status);
         if (!response.ok) {
             throw new Error('User not found');
         }
         const repos = await response.json();
+        console.log('Repositories fetched successfully:', repos);
         displayUserRepos(repos);
     } catch (error) {
+        console.error('Error fetching user repositories:', error);
         displayError(error.message);
     }
 }
