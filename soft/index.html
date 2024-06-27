@@ -47,7 +47,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Windows 7 <i class="fab fa-windows"></i></h5>
                             <p class="card-text">Download Windows 7 here.</p>
-                            <a href="https://www.heidoc.net/joomla/technology-science/microsoft/67-microsoft-windows-and-office-iso-download-tool" class="btn btn-primary magic-btn">Download</a>
+                            <a href="https://archive.org/details/windows-7-sp0-sp1-msdn-iso-files-en-de-ru-tr-x86-x64" class="btn btn-primary magic-btn">Download</a>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Windows 8 <i class="fab fa-windows"></i></h5>
                             <p class="card-text">Download Windows 8 here.</p>
-                            <a href="https://www.heidoc.net/joomla/technology-science/microsoft/67-microsoft-windows-and-office-iso-download-tool" class="btn btn-primary magic-btn">Download</a>
+                            <a href="https://archive.org/compress/win-8.1-english-x-64_20211019/formats=ISO%20IMAGE&file=/win-8.1-english-x-64_20211019.zip" class="btn btn-primary magic-btn">Download</a>
                         </div>
                     </div>
                 </div>
@@ -210,8 +210,24 @@
     </div>
 
     <footer class="bg-dark text-white text-center py-3 mt-5">
-        <p>&copy; 2024 Professional Microsoft (ELITE KAMRUL). All rights reserved.</p>
+        <p>&copy; <span id="currentYear"></span>Microsoft (ELITE KAMRUL). All rights reserved.</p>
     </footer>
+
+    <script>
+        // Function to format date as YYYY,MM,DD
+        function formatDate(date) {
+            let year = date.getFullYear();
+            let month = ('0' + (date.getMonth() + 1)).slice(-2); // Add 1 to month and pad with leading zero
+            let day = ('0' + date.getDate()).slice(-2); // Pad day with leading zero
+            return `${year},${month},${day}`;
+        }
+
+        // Get current date
+        let currentDate = new Date();
+
+        // Set formatted date in footer
+        document.getElementById('currentYear').innerText = formatDate(currentDate);
+    </script>
 
     <a href="#" id="back-to-top" class="btn btn-secondary btn-lg back-to-top" role="button"><i class="fas fa-hand-point-up"></i></a>
 
