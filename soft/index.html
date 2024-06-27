@@ -214,7 +214,7 @@
     </footer>
 
     <script>
-        // Function to format date as DD-MM-YYYY and time in BD (Bangladesh) timezone as H-M-S with 12-hour format
+        // Function to format date as DD-MM-YYYY and time in BD (Bangladesh) timezone as H:M:S AM/PM
         function formatDateTime(date) {
             let options = { timeZone: 'Asia/Dhaka', hour12: true };
             
@@ -227,7 +227,7 @@
             let seconds = ('0' + date.toLocaleString('en-US', { second: 'numeric', ...options })).slice(-2);
             let period = date.toLocaleString('en-US', { hour12: true, ...options }).split(' ')[1];
             
-            return `${day}-${month}-${year} , ${hours}-${minutes}-${seconds} ${period}`;
+            return `${day}-${month}-${year} , ${hours}:${minutes}:${seconds} ${period}`;
         }
 
         // Get current date and time
