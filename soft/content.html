@@ -209,57 +209,6 @@
         </section>
     </div>
 
-    <footer class="bg-dark text-white text-center py-3 mt-5">
-        <p> <span id="currentDateTime"></span> <br> &copy; Microsoft (ELITE KAMRUL). All rights reserved.</p>
-    </footer>
 
-    <script>
-        // Function to format date as DD-MM-YYYY and time in BD (Bangladesh) timezone as H:M:S AM/PM
-        function formatDateTime(date) {
-            let options = { timeZone: 'Asia/Dhaka', hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            
-            let day = ('0' + date.getDate()).slice(-2); // Pad day with leading zero
-            let month = ('0' + (date.getMonth() + 1)).slice(-2); // Add 1 to month and pad with leading zero
-            let year = date.getFullYear();
-            
-            let timeString = date.toLocaleString('en-US', options);
-            let [time, period] = timeString.split(' ');
-            
-            return `${day}-${month}-${year}, ${time} ${period}`;
-        }
-
-        // Get current date and time
-        function updateDateTime() {
-            let currentDate = new Date();
-            document.getElementById('currentDateTime').innerText = formatDateTime(currentDate);
-        }
-
-        // Set formatted date and time in footer
-        updateDateTime();
-        
-        // Update the date and time every second
-        setInterval(updateDateTime, 1000);
-    </script>
-
-    <a href="#" id="back-to-top" class="btn btn-secondary btn-lg back-to-top" role="button"><i class="fas fa-hand-point-up"></i></a>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $(window).scroll(function(){
-                if ($(this).scrollTop() > 100) {
-                    $('#back-to-top').fadeIn();
-                } else {
-                    $('#back-to-top').fadeOut();
-                }
-            });
-            $('#back-to-top').click(function(){
-                $("html, body").animate({ scrollTop: 0 }, 600);
-                return false;
-            });
-        });
-    </script>
 </body>
 </html>
