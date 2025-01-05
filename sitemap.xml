@@ -1,28 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kamrul.us/</loc>
-  <lastmod>2025-01-05</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://kamrul.us/index.html</loc>
-  <lastmod>2025-01-05</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kamrul.us/about.html</loc>
-  <lastmod>2025-01-05</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kamrul.us/soft/</loc>
-  <lastmod>2025-01-05</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.8</priority>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
