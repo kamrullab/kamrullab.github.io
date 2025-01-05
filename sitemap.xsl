@@ -8,6 +8,8 @@
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #0078D7, #0053A6);
             color: #333;
+            margin: 0;
+            padding: 0;
           }
           .container {
             margin: 40px auto;
