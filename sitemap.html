@@ -62,22 +62,23 @@
         border: 1px solid #ddd;
     }
 
-    /* Header Styling with Red Background Behind Text Only */
+    /* Header Styling with Red Background Behind Text */
     th {
-        position: relative;
         font-size: 15px;
         font-weight: bold;
         text-transform: uppercase;
         background-color: transparent; /* No cell background */
-        color: #ffffff; /* Default white text color */
+        color: white; /* White text color */
     }
 
     th span {
+        display: inline-block; /* Ensure text expands properly */
         background-color: #FF0000; /* Red background for text */
-        padding: 3px 6px; /* Add spacing around text */
+        padding: 5px 10px; /* Adjust spacing around text */
         border-radius: 3px; /* Optional: Rounded background edges */
-        color: white; /* White text color */
+        color: white; /* White text */
         font-size: 14px; /* Adjust text size */
+        line-height: 1.5; /* Ensure enough line height */
     }
 
     /* Table Row and Cell Styling */
@@ -127,6 +128,7 @@
         }
     }
 </style>
+
 
 
 </head>
