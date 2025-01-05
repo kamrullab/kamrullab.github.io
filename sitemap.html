@@ -43,18 +43,23 @@
     table {
         border-collapse: collapse;
         width: 100%;
-        word-wrap: break-word;
     }
     th, td {
         text-align: center;
         padding: 10px;
         font-size: 14px;
-        word-break: break-word;
+        word-break: break-word; /* Prevents text overflow */
     }
     th {
         background: #0078D7;
         color: #fff;
         font-size: 15px;
+        text-transform: uppercase; /* Makes headers bold and uppercase */
+        font-weight: bold;
+        border: 1px solid #ddd; /* Adds a border for better clarity */
+    }
+    td {
+        border: 1px solid #ddd; /* Adds consistent borders for cells */
     }
     tr:nth-child(even) {
         background: #f9f9f9;
@@ -62,8 +67,6 @@
     a {
         color: #0078D7;
         text-decoration: none;
-        word-wrap: break-word;
-        word-break: break-all;
     }
     a:hover {
         text-decoration: underline;
@@ -90,6 +93,7 @@
         }
     }
 </style>
+
 
 </head>
 <body>
