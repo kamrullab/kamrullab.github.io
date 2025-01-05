@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04  # Explicitly set to Ubuntu 22.04 for stability
+    runs-on: ubuntu-22.04  # Explicitly specify the Ubuntu version
 
     steps:
       # Step 1: Checkout the repository
@@ -26,10 +26,10 @@ jobs:
       # Step 4: Commit and Push Sitemap
       - name: Commit and Push Sitemap
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add sitemap.xml
           git commit -m "Update sitemap.xml"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/kamrullab/kamrullab.github.io.git HEAD:main
+          git push https://x-access-token:${GH_PAT}@github.com/kamrullab/kamrullab.github.io.git HEAD:main
