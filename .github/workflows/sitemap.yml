@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # Explicitly set to Ubuntu 22.04 for stability
 
     steps:
       # Step 1: Checkout the repository
@@ -32,4 +32,4 @@ jobs:
           git config user.email "actions@github.com"
           git add sitemap.xml
           git commit -m "Update sitemap.xml"
-          git push origin HEAD:main
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/kamrullab/kamrullab.github.io.git HEAD:main
