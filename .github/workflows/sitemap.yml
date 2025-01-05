@@ -38,16 +38,16 @@ jobs:
           echo '<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>' | cat - sitemap.xml > temp && mv temp sitemap.xml
 
       # Step 6: Commit and Push Sitemap
-     - name: Commit and Push Sitemap
-  env:
-    GH_PAT: ${{ secrets.GH_PAT }}
-  run: |
-    git config user.name "GitHub Actions Bot"
-    git config user.email "actions@github.com"
-    git remote set-url origin https://x-access-token:${GH_PAT}@github.com/kamrullab/kamrullab.github.io.git
-    git fetch origin main
-    git merge origin/main --no-edit
-    git add sitemap.xml
-    git add sitemap.xsl
-    git commit -m "Auto-update sitemap.xml and sitemap.xsl" || echo "No changes to commit"
-    git push origin HEAD:main
+      - name: Commit and Push Sitemap
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/kamrullab/kamrullab.github.io.git
+          git fetch origin main
+          git merge origin/main --no-edit
+          git add sitemap.xml
+          git add sitemap.xsl
+          git commit -m "Auto-update sitemap.xml and sitemap.xsl" || echo "No changes to commit"
+          git push origin HEAD:main
