@@ -41,14 +41,17 @@
         margin-top: 20px;
     }
     table {
-        border-collapse: collapse;
+        border-collapse: collapse; /* Ensures consistent border rendering */
         width: 100%;
+        background-color: #ffffff; /* Ensures the table background is white */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
     }
     th, td {
         text-align: center;
         padding: 10px;
         font-size: 14px;
-        word-break: break-word; /* Prevents text overflow */
+        word-break: break-word;
+        border: 1px solid #ddd; /* Adds visible borders between cells */
     }
     th {
         background: #0078D7;
@@ -56,13 +59,12 @@
         font-size: 15px;
         text-transform: uppercase; /* Makes headers bold and uppercase */
         font-weight: bold;
-        border: 1px solid #ddd; /* Adds a border for better clarity */
-    }
-    td {
-        border: 1px solid #ddd; /* Adds consistent borders for cells */
     }
     tr:nth-child(even) {
-        background: #f9f9f9;
+        background: #f9f9f9; /* Adds alternating row colors */
+    }
+    tr:hover {
+        background: #eaf3ff; /* Highlight row on hover */
     }
     a {
         color: #0078D7;
