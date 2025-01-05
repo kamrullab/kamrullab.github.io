@@ -8,27 +8,27 @@
         <style>
           body {
             font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
           }
           header {
             background-color: #0078D7;
-            color: #fff;
+            color: white;
             text-align: center;
             padding: 20px;
           }
           table {
             margin: 20px auto;
-            border-collapse: collapse;
             width: 90%;
+            border-collapse: collapse;
             background: white;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
           }
           th, td {
             border: 1px solid #ddd;
+            padding: 10px;
             text-align: left;
-            padding: 8px;
           }
           th {
             background-color: #0078D7;
@@ -38,12 +38,8 @@
             color: #0078D7;
             text-decoration: none;
           }
-          a:hover {
-            text-decoration: underline;
-          }
           footer {
             text-align: center;
-            margin-top: 20px;
             padding: 10px;
             background-color: #0078D7;
             color: white;
