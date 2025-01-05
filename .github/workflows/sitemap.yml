@@ -3,7 +3,7 @@ name: Generate Sitemap
 on:
   push:
     branches:
-      - main  # Replace 'main' with your default branch name if it's different
+      - main  # Ensure this matches your default branch
 
 jobs:
   build:
@@ -16,19 +16,18 @@ jobs:
 
       # Step 2: Install Sitemap Generator
       - name: Install Sitemap Generator
-        run: |
-          npm install -g sitemap-generator-cli
+        run: npm install -g sitemap-generator-cli
 
       # Step 3: Generate the Sitemap
       - name: Generate Sitemap
         run: |
           npx sitemap-generator-cli https://kamrul.us -o sitemap.xml
 
-      # Step 4: Commit and Push the Updated Sitemap
+      # Step 4: Commit and Push Sitemap
       - name: Commit and Push Sitemap
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add sitemap.xml
           git commit -m "Update sitemap.xml"
-          git push
+          git push origin HEAD:main
