@@ -1,13 +1,13 @@
-name: Generate Sitemap
+name: Generate and Update Sitemap
 
 on:
   push:
     branches:
-      - main  # Adjust if your default branch is not `main`
+      - main  # Trigger workflow on changes to the main branch
 
 jobs:
   build:
-    runs-on: ubuntu-22.04  # Explicitly specify the Ubuntu version
+    runs-on: ubuntu-22.04  # Use a specific Ubuntu version for stability
 
     steps:
       # Step 1: Checkout the repository
@@ -23,7 +23,21 @@ jobs:
         run: |
           npx sitemap-generator-cli https://kamrul.us -o sitemap.xml
 
-      # Step 4: Commit and Push Sitemap
+      # Step 4: Add Auto-Generated Metadata
+      - name: Add Metadata to Sitemap
+        run: |
+          CURRENT_DATE=$(date -u +"%Y-%m-%d")
+          sed -i '/<\/url>/i \
+            <lastmod>'"$CURRENT_DATE"'</lastmod>\
+            <changefreq>weekly</changefreq>\
+            <priority>0.8</priority>' sitemap.xml
+
+      # Step 5: Attach XSL File for Styling
+      - name: Attach XSL File
+        run: |
+          echo '<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>' | cat - sitemap.xml > temp && mv temp sitemap.xml
+
+      # Step 6: Commit and Push Sitemap
       - name: Commit and Push Sitemap
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
@@ -31,5 +45,6 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add sitemap.xml
-          git commit -m "Update sitemap.xml"
+          git add sitemap.xsl
+          git commit -m "Auto-update sitemap.xml and sitemap.xsl"
           git push https://x-access-token:${GH_PAT}@github.com/kamrullab/kamrullab.github.io.git HEAD:main
