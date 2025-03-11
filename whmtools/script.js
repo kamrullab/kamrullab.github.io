@@ -26,28 +26,30 @@ function generateCommands() {
                 + "⚠️ Only use this if you're sure the DNS entry needs deletion.<br>"
                 + "💡 Recommended before adding the domain again."
         },
+        /*
         {
             cmd: `rm -f /var/named/${domain}.db`,
             desc: "🗑️ Deletes the domain's DNS zone file permanently.<br>"
                 + "🚨 Be cautious! This action cannot be undone.<br>"
                 + "✅ Use before recreating the domain in DNS settings."
         },
+        */
 
         // 🔹 ACCOUNT MANAGEMENT COMMANDS 🔹
         {
-            cmd: `sls suspend ${domain}`,
+            cmd: `suspend ${domain}`,
             desc: "⛔ Suspends a cPanel account, preventing access.<br>"
                 + "🔄 Useful for unpaid invoices or security concerns.<br>"
                 + "🚀 The account remains intact and can be unsuspended anytime."
         },
         {
-            cmd: `sls unsuspend ${domain}`,
+            cmd: `unsuspend ${domain}`,
             desc: "✅ Reactivates a previously suspended cPanel account.<br>"
                 + "🔄 Restores full access for the user immediately.<br>"
                 + "💡 Ensure there are no ongoing security risks before reactivating."
         },
         {
-            cmd: `sls terminate ${domain}`,
+            cmd: `terminate ${domain}`,
             desc: "💀 Permanently deletes a cPanel account from the system.<br>"
                 + "🚨 Cannot be undone. All data, emails, and files are removed.<br>"
                 + "✅ Recommended only when absolutely necessary."
