@@ -155,7 +155,250 @@ function generateCommands() {
             desc: "✅ Unsuspends a site previously disabled with SLS.<br>"
                 + "🔄 Restores access immediately.<br>"
                 + "💡 Ensure security checks before reactivating."
-        }
+        },
+        {
+            cmd: `whmapi1 getdomainowner domain=${domain}`,
+            desc: "🔍 Finds the cPanel username assigned to the specified domain.<br>"
+                + "✅ Useful when managing multiple accounts.<br>"
+                + "⚠️ Ensures correct user-domain mapping."
+        },
+        {
+            cmd: `whmapi1 listaddondomains user=${domain}`,
+            desc: "🌐 Lists all addon domains under a specified cPanel username.<br>"
+                + "✅ Useful for checking secondary domains.<br>"
+                + "🔄 Helps in migration and verification tasks."
+        },
+        {
+            cmd: `whmapi1 get_main_domain user=${domain}`,
+            desc: "🏠 Finds the main (primary) domain associated with a cPanel user.<br>"
+                + "🔎 Useful when managing multiple addon domains.<br>"
+                + "✅ Prevents misconfigurations when modifying accounts."
+        },
+        {
+            cmd: `whmapi1 suspend_addon_domain domain=${domain}`,
+            desc: "🚫 Suspends an addon domain without affecting the main account.<br>"
+                + "✅ Useful for restricting access temporarily.<br>"
+                + "🔍 Does not delete data."
+        },
+        {
+            cmd: `whmapi1 unsuspend_addon_domain domain=${domain}`,
+            desc: "✅ Reactivates a suspended addon domain.<br>"
+                + "🔎 Useful for restoring access after troubleshooting.<br>"
+                + "⚙️ Ensures minimal downtime."
+        },
+        {
+            cmd: `whmapi1 removeacct user=${domain}`,
+            desc: "❌ Permanently deletes a cPanel account.<br>"
+                + "⚠️ Cannot be undone.<br>"
+                + "✅ Use with caution when removing inactive accounts."
+        },
+        {
+            cmd: `whmapi1 listaccts search=${domain} searchtype=owner`,
+            desc: "📋 Lists all domains owned by a specific reseller.<br>"
+                + "🔎 Helps verify reseller accounts.<br>"
+                + "✅ Useful for reseller management."
+        },
+        {
+            cmd: `whmapi1 getbwusage domain=${domain}`,
+            desc: "📊 Retrieves bandwidth usage statistics for a domain.<br>"
+                + "🔎 Helps in analyzing website traffic.<br>"
+                + "✅ Useful for tracking resource limits."
+        },
+        {
+            cmd: `whmapi1 list_domains`,
+            desc: "🌎 Lists all active domains on the server.<br>"
+                + "🔍 Useful for auditing and verification.<br>"
+                + "✅ Ensures no unauthorized domains are hosted."
+        },
+        {
+            cmd: `whmapi1 getipforwhmuser user=${domain}`,
+            desc: "📌 Finds the primary IP address assigned to a domain.<br>"
+                + "🔎 Useful for SSL and DNS configuration.<br>"
+                + "✅ Prevents misconfigurations in domain routing."
+        },
+        
+            {
+                cmd: `whmapi1 gethostname`,
+                desc: "🌍 Retrieves the hostname of the WHM server.<br>"
+                    + "✅ Useful for checking if the server hostname is correctly configured.<br>"
+                    + "⚙️ Helps when setting up SSL and email services."
+            },
+            {
+                cmd: `whmapi1 listparkeddomains user=${domain}`,
+                desc: "🔄 Lists all parked (alias) domains for a cPanel account.<br>"
+                    + "✅ Useful for identifying additional domains mapped to the main site.<br>"
+                    + "⚠️ Helps in troubleshooting domain redirection issues."
+            },
+            {
+                cmd: `whmapi1 changepackage user=${domain} pkg=new_package_name`,
+                desc: "📦 Changes the hosting package assigned to a cPanel user.<br>"
+                    + "✅ Useful for upgrading or downgrading accounts.<br>"
+                    + "⚠️ Ensure the new package is correctly configured before applying."
+            },
+            {
+                cmd: `whmapi1 reboot`,
+                desc: "⚡ Reboots the WHM server.<br>"
+                    + "✅ Use this only when necessary (e.g., major updates, frozen services).<br>"
+                    + "⚠️ All sites will be temporarily unavailable during the reboot."
+            },
+            {
+                cmd: `whmapi1 suspend_outgoing_email user=${domain}`,
+                desc: "📩 Suspends all outgoing emails for a cPanel account.<br>"
+                    + "✅ Prevents spam or excessive email usage.<br>"
+                    + "⚠️ Useful for accounts flagged for high email sending rates."
+            },
+            {
+                cmd: `whmapi1 unsuspend_outgoing_email user=${domain}`,
+                desc: "📨 Restores outgoing email functionality for a cPanel account.<br>"
+                    + "✅ Use when the issue is resolved.<br>"
+                    + "⚙️ Ensures smooth email communication without restrictions."
+            },
+            {
+                cmd: `whmapi1 delete_zone domain=${domain}`,
+                desc: "🚀 Deletes the DNS zone for a specific domain.<br>"
+                    + "✅ Useful when removing a domain completely from the server.<br>"
+                    + "⚠️ Be careful, as this will remove all DNS records."
+            },
+            {
+                cmd: `whmapi1 set_resolver resolver1=8.8.8.8 resolver2=8.8.4.4`,
+                desc: "🔧 Updates the server's DNS resolvers.<br>"
+                    + "✅ Helps in resolving domains faster and fixing DNS lookup issues.<br>"
+                    + "⚠️ Use trusted DNS providers like Google (8.8.8.8, 8.8.4.4)."
+            },
+            {
+                cmd: `whmapi1 install_ssl hostname=${domain} ip=YOUR_SERVER_IP key='SSL_KEY' crt='SSL_CERT' ca='SSL_CA'`,
+                desc: "🔒 Installs an SSL certificate for a domain.<br>"
+                    + "✅ Required for HTTPS security and encrypted connections.<br>"
+                    + "⚠️ Ensure the correct SSL key, certificate, and CA bundle are provided."
+            },
+            {
+                cmd: `whmapi1 get_auto_ssl_log user=${domain}`,
+                desc: "🔍 Retrieves the AutoSSL log for a cPanel account.<br>"
+                    + "✅ Useful for debugging SSL installation issues.<br>"
+                    + "⚙️ Helps diagnose certificate renewal failures."
+            },
+            {
+                cmd: `whmapi1 restartservice service=apache`,
+                desc: "⚙️ Restarts the Apache web server.<br>"
+                    + "✅ Useful when applying configuration changes.<br>"
+                    + "⚠️ A restart may cause temporary website downtime."
+            },
+            {
+                cmd: `whmapi1 restartservice service=exim`,
+                desc: "📬 Restarts the Exim mail service.<br>"
+                    + "✅ Useful when fixing email delivery issues.<br>"
+                    + "⚠️ Ensure all email queues are processed before restarting."
+            },
+            {
+                cmd: `whmapi1 listaccts searchtype=owner search=${domain}`,
+                desc: "👥 Lists all cPanel accounts owned by a reseller.<br>"
+                    + "✅ Helps identify reseller accounts and their associated domains.<br>"
+                    + "⚙️ Useful for reseller account management."
+            },
+            {
+                cmd: `whmapi1 terminate_session session=${domain}`,
+                desc: "🚫 Terminates an active WHM or cPanel session.<br>"
+                    + "✅ Useful for force-logging out a user.<br>"
+                    + "⚠️ Helps prevent unauthorized access."
+            },
+            {
+                cmd: `whmapi1 create_user_session user=${domain} service=whm`,
+                desc: "🔐 Creates a temporary WHM session for a user.<br>"
+                    + "✅ Allows users to log in without needing a password.<br>"
+                    + "⚙️ Useful for resellers or temporary access."
+            },
+            
+                {
+                    cmd: `whmapi1 configuresessiontimeout logouttime=7200`,
+                    desc: "⏳ Increases WHM & cPanel session timeout (default is 1440 seconds).<br>"
+                        + "✅ Helps prevent auto-logout issues for long sessions.<br>"
+                        + "⚙️ Set to 7200 seconds (2 hours) for better accessibility."
+                },
+                {
+                    cmd: `whmapi1 modifyacct user=${domain} MAXFTP=unlimited`,
+                    desc: "🔄 Increases the maximum FTP accounts for a cPanel user.<br>"
+                        + "✅ Useful when a user needs more FTP connections.<br>"
+                        + "⚠️ Ensure this does not exceed server limits."
+                },
+                {
+                    cmd: `whmapi1 get_session_expiry_time`,
+                    desc: "🕒 Displays current session expiration settings.<br>"
+                        + "✅ Helps debug automatic logout issues.<br>"
+                        + "⚙️ Modify with `configuresessiontimeout` if needed."
+                },
+                {
+                    cmd: `sls status`,
+                    desc: "🛡️ Checks the status of the Server-Level Security (SLS) service.<br>"
+                        + "✅ Useful for confirming whether security enforcement is active.<br>"
+                        + "⚙️ Ensures WHM and cPanel security policies are functioning correctly."
+                },
+                {
+                    cmd: `sls restart`,
+                    desc: "🔄 Restarts the SLS security service.<br>"
+                        + "✅ Helps resolve firewall issues, login failures, or security conflicts.<br>"
+                        + "⚠️ Should be used after major security changes."
+                },
+                {
+                    cmd: `sls logs`,
+                    desc: "📜 Displays recent security logs from the SLS service.<br>"
+                        + "✅ Useful for debugging firewall rules or unauthorized login attempts.<br>"
+                        + "⚙️ Helps track suspicious activity."
+                },
+                {
+                    cmd: `sls unblock ip=${domain}`,
+                    desc: "🔓 Unblocks an IP address that was mistakenly blocked by SLS.<br>"
+                        + "✅ Useful for restoring access to WHM, cPanel, or SSH.<br>"
+                        + "⚠️ Verify the IP before unblocking for security reasons."
+                },
+                {
+                    cmd: `sls whitelist ip=${domain}`,
+                    desc: "⚪ Adds an IP to the whitelist, preventing security blocks.<br>"
+                        + "✅ Use for trusted admin or developer IPs.<br>"
+                        + "⚠️ Only whitelist known and secure IPs."
+                },
+                {
+                    cmd: `sls ban ip=${domain}`,
+                    desc: "🚫 Bans an IP from accessing the server due to security violations.<br>"
+                        + "✅ Helps prevent brute-force attacks and unauthorized logins.<br>"
+                        + "⚠️ Use this cautiously, as it completely blocks access."
+                },
+                {
+                    cmd: `whmapi1 disable_password_authentication`,
+                    desc: "🔐 Disables password-based login and forces SSH key authentication.<br>"
+                        + "✅ Enhances server security by preventing brute-force attacks.<br>"
+                        + "⚠️ Ensure SSH keys are set up before using this command."
+                },
+                {
+                    cmd: `whmapi1 enable_password_authentication`,
+                    desc: "🔑 Re-enables password-based authentication for WHM and SSH.<br>"
+                        + "✅ Useful if you need temporary access via passwords.<br>"
+                        + "⚠️ Less secure than SSH keys, so use only if necessary."
+                },
+                {
+                    cmd: `whmapi1 update_license`,
+                    desc: "📜 Refreshes the WHM/cPanel license if activation issues occur.<br>"
+                        + "✅ Helps resolve 'License File Expired' errors.<br>"
+                        + "⚙️ Usually needed after an IP change or reinstallation."
+                },
+                {
+                    cmd: `whmapi1 validate_license`,
+                    desc: "🛠️ Checks the validity of your WHM/cPanel license.<br>"
+                        + "✅ Ensures that your license is active and valid.<br>"
+                        + "⚠️ If invalid, contact cPanel support to renew."
+                },
+                {
+                    cmd: `whmapi1 get_server_load`,
+                    desc: "📊 Displays the current server load statistics.<br>"
+                        + "✅ Helps diagnose performance issues.<br>"
+                        + "⚙️ Useful for monitoring CPU usage and traffic spikes."
+                },
+                {
+                    cmd: `whmapi1 kill_process pid=1234`,
+                    desc: "💀 Terminates a running process on the server.<br>"
+                        + "✅ Useful for stopping stuck or high-resource-consuming processes.<br>"
+                        + "⚠️ Use with caution, as it forcefully stops the process."
+                }
+    
     ];
 
     let output = "";
