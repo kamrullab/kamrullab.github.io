@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Office 2024 Offline Installer Packages</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <title>Office 2024 Offline Installer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9fcfdb5dc5.js" crossorigin="anonymous"></script>
   <style>
     * {
       margin: 0; padding: 0;
@@ -12,7 +13,7 @@
       font-family: 'Inter', sans-serif;
     }
     body {
-      background: linear-gradient(135deg, #4b6cb7, #182848);
+      background: linear-gradient(135deg, #283c86, #45a247);
       color: #fff;
       display: flex;
       align-items: center;
@@ -21,8 +22,8 @@
       padding: 20px;
     }
     .container {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
       border-radius: 16px;
       padding: 30px;
       max-width: 700px;
@@ -32,7 +33,7 @@
     }
     h1 {
       font-size: 28px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     p {
       font-size: 15px;
@@ -41,21 +42,26 @@
       color: #eaeaea;
     }
     .link-box {
-      background: #007bff;
+      background: #00c6ff;
       color: #fff;
       text-decoration: none;
-      padding: 14px 20px;
-      border-radius: 8px;
-      display: block;
+      padding: 14px 24px;
+      border-radius: 10px;
+      display: inline-block;
       font-weight: 600;
-      transition: all 0.3s ease;
       margin: 15px auto;
       max-width: 400px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .link-box i {
+      margin-right: 8px;
     }
     .link-box:hover {
-      background: #00ffaa;
+      background: #00ff95;
       color: #000;
       transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
     .label {
       margin-top: 20px;
@@ -71,18 +77,26 @@
 </head>
 <body>
   <div class="container">
-    <h1>Office 2024 Offline Installer Packages</h1>
-    <p>If you're deploying, imaging, or installing offline, use these direct Microsoft .img files for Office 2024 editions:</p>
+    <h1>Office 2024 Offline Installer</h1>
+    <p>Select your edition below. The download will begin, and you will be redirected back after 5 seconds.</p>
 
-    <div class="label">Professional Plus (Recommended)</div>
-    <a class="link-box" href="https://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/ProPlus2024Retail.img" target="_blank">
-      Download Office 2024 ProPlus (.img)
+    <div class="label">Professional Plus</div>
+    <a class="link-box" href="https://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/ProPlus2024Retail.img" onclick="delayedRedirect()">
+      <i class="fas fa-download"></i> Download ProPlus 2024 (.img)
     </a>
 
-    <div class="label">Professional (If available)</div>
-    <a class="link-box" href="https://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/Professional2024Retail.img" target="_blank">
-      Download Office 2024 Professional (.img)
+    <div class="label">Professional</div>
+    <a class="link-box" href="https://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/Professional2024Retail.img" onclick="delayedRedirect()">
+      <i class="fas fa-download"></i> Download Professional 2024 (.img)
     </a>
   </div>
+
+  <script>
+    function delayedRedirect() {
+      setTimeout(() => {
+        window.location.href = "https://kamrul.us/soft/"; // 
+      }, 5000); // 5 seconds
+    }
+  </script>
 </body>
 </html>
