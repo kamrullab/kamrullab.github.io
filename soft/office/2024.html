@@ -22,8 +22,8 @@
       padding: 20px;
     }
     .container {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
       border-radius: 16px;
       padding: 30px;
       max-width: 700px;
@@ -42,7 +42,7 @@
       color: #eaeaea;
     }
     .link-box {
-      background: #00c6ff;
+      background: #007bff;
       color: #fff;
       text-decoration: none;
       padding: 14px 24px;
@@ -54,14 +54,25 @@
       transition: all 0.3s ease;
       position: relative;
     }
-    .link-box i {
-      margin-right: 8px;
-    }
     .link-box:hover {
-      background: #00ff95;
+      background: #00ffaa;
       color: #000;
       transform: scale(1.05);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .link-box i {
+      margin-right: 8px;
+    }
+    .recommended {
+      background-color: red;
+      color: white;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: bold;
+      border-radius: 6px;
+      margin-left: 10px;
+      vertical-align: middle;
+      cursor: help;
     }
     .label {
       margin-top: 20px;
@@ -78,9 +89,12 @@
 <body>
   <div class="container">
     <h1>Office 2024 Offline Installer</h1>
-    <p>Select your edition below. The download will begin, and you will be redirected back after 5 seconds.</p>
+    <p>Select your edition below. The download will begin, and you will be redirected after 5 seconds.</p>
 
-    <div class="label">Professional Plus</div>
+    <div class="label">
+      Professional Plus 
+      <span class="recommended" title="Always Recommended">RECOMMENDED</span>
+    </div>
     <a class="link-box" href="https://officecdn.microsoft.com/pr/492350f6-3a01-4f97-b9c0-c7c6ddf67d60/media/en-us/ProPlus2024Retail.img" onclick="delayedRedirect()">
       <i class="fas fa-download"></i> Download ProPlus 2024 (.img)
     </a>
@@ -94,8 +108,8 @@
   <script>
     function delayedRedirect() {
       setTimeout(() => {
-        window.location.href = "https://kamrul.us/soft/"; // 
-      }, 5000); // 5 seconds
+        window.location.href = "https://kamrul.us/soft/";
+      }, 5000);
     }
   </script>
 </body>
