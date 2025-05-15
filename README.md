@@ -1,11 +1,11 @@
 # Welcome to My GitHub Repository! 👋
 
 [![GitHub](https://img.shields.io/badge/GitHub-kamrullab-blue?style=for-the-badge&logo=github)](https://github.com/kamrullab)
-[![Website](https://img.shields.io/badge/Website-elitekamrul.me-green?style=for-the-badge&logo=google-chrome)](https://elitekamrul.me) <br>
+[![Website](https://img.shields.io/badge/Website-kamrul.us-green?style=for-the-badge&logo=google-chrome)](https://kamrul.us/) <br>
 
 ![Kamrul Hossain](https://avatars.githubusercontent.com/u/128359757)
 
-This repository contains the code for my personal website, hosted at [elitekamrul.me](https://elitekamrul.me). Feel free to explore the code and make contributions if you find anything interesting!
+This repository contains the code for my personal website, hosted at [Kamrul](https://Kamrul.us). Feel free to explore the code and make contributions if you find anything interesting!
 # Support Us - Donate As You Wish! 🙏
 
 [![Donate](https://img.shields.io/badge/Donate-As%20you%20wish-blue.svg)](https://shop.bkash.com/elite-kamrul01568670982/paymentlink)
@@ -61,7 +61,7 @@ I used various technologies and tools to create this website:
 Let's stay connected! You can find me on:
 
 [![GitHub](https://img.shields.io/badge/GitHub-kamrullab-blue?style=for-the-badge&logo=github)](https://github.com/kamrullab) <br>
-[![Website](https://img.shields.io/badge/Website-elitekamrul.me-green?style=for-the-badge&logo=google-chrome)](https://elitekamrul.me) <br>
+[![Website](https://img.shields.io/badge/Website-kamrul.us-green?style=for-the-badge&logo=google-chrome)](https://kamrul.us/) <br>
 [![Email](https://img.shields.io/badge/Email-mr.kamrul61%40gmail.com-red?style=for-the-badge&logo=gmail)](mailto:mr.kamrul61@gmail.com) <br>
 [![Messenger](https://img.shields.io/badge/Messenger-m.me%2Felitekamrul-blue?style=for-the-badge&logo=messenger)](https://m.me/elitekamrul) <br>
 
