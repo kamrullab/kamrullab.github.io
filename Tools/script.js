@@ -1,19 +1,19 @@
-// ✅ Define GitHub username ONCE
+// ✅ GitHub username (only declared once)
 let username = "kamrullab";
 
-// ✅ Select DOM elements
+// ✅ DOM elements
 const container = document.getElementById("tool-container");
 const pinnedContainer = document.getElementById("pinned-section");
 const categoryFilter = document.getElementById("categoryFilter");
 const searchInput = document.getElementById("searchInput");
 
-// ✅ Optional overrides (pin, hide, category)
+// ✅ Optional repo-specific overrides (if needed)
 const overrides = {
   // Example:
   // "repo-name": { pin: true, hide: false, category: "Plugin" }
 };
 
-// ✅ Get all public repos
+// ✅ Fetch all public repos of the user
 async function getAllRepos(username) {
   const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
   const repos = await res.json();
@@ -32,7 +32,7 @@ async function getAllRepos(username) {
     }));
 }
 
-// ✅ Fetch repo details + detect language
+// ✅ Fetch each repo's details and language
 async function fetchRepo(repoPath) {
   const [repoRes, langRes] = await Promise.all([
     fetch(`https://api.github.com/repos/${repoPath}`),
@@ -44,6 +44,7 @@ async function fetchRepo(repoPath) {
 
   if (!repoRes.ok) return null;
 
+  // Detect primary language
   let primaryLang = repoData.language;
   if (!primaryLang || primaryLang === "null") {
     const languages = Object.entries(langData);
@@ -54,7 +55,7 @@ async function fetchRepo(repoPath) {
     }
   }
 
-  // Format known names
+  // Friendly name formatting
   if (primaryLang === "Batchfile") primaryLang = "CMD/Batch";
   if (primaryLang === "Shell") primaryLang = "Shell Script";
 
@@ -64,7 +65,7 @@ async function fetchRepo(repoPath) {
   };
 }
 
-// ✅ Match tool by search/category
+// ✅ Match search & category
 function matchFilter(tool, search, category) {
   const textMatch = tool.name.toLowerCase().includes(search.toLowerCase()) ||
     (tool.description || "").toLowerCase().includes(search.toLowerCase());
@@ -72,7 +73,7 @@ function matchFilter(tool, search, category) {
   return textMatch && categoryMatch;
 }
 
-// ✅ Render tools to UI
+// ✅ Render all tools
 async function renderTools() {
   container.innerHTML = "";
   pinnedContainer.innerHTML = "";
@@ -122,15 +123,16 @@ async function renderTools() {
   document.getElementById("loader").style.display = "none";
 }
 
-// ✅ Event listeners
+// ✅ Listeners
 searchInput.addEventListener("input", renderTools);
 categoryFilter.addEventListener("change", renderTools);
 
 document.addEventListener("click", e => {
   if (e.target.classList.contains("readme-btn")) {
-    showReadmeModal(e.target.getAttribute("data-repo")); // You must define this function elsewhere
+    showReadmeModal(e.target.getAttribute("data-repo")); // Must be defined elsewhere
   }
 });
 
+// ✅ Start rendering
 renderTools();
 AOS.init({ duration: 800, once: true });
