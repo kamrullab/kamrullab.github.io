@@ -1,19 +1,20 @@
 (() => {
-  // ✅ GitHub username
   const username = "kamrullab";
 
-  // ✅ DOM elements
   const container = document.getElementById("tool-container");
   const pinnedContainer = document.getElementById("pinned-section");
   const categoryFilter = document.getElementById("categoryFilter");
   const searchInput = document.getElementById("searchInput");
 
-  // ✅ Optional repo overrides (hide, pin, category)
+  // ✅ Manual pin/hide/category settings
   const overrides = {
-    // "example-repo": { pin: true, hide: false, category: "Plugin" }
+    "azurechatgpt": { pin: true, category: "AI Tool" },
+    "Activate-Gmail-for-Google-Workspace": { pin: true, category: "Email Setup" },
+    "BdEduFinder": { category: "Education" },
+    "adb": { category: "Utility" }
+    // Add more as needed
   };
 
-  // ✅ Fetch all public repos
   async function getAllRepos(username) {
     const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
     const repos = await res.json();
@@ -32,7 +33,6 @@
       }));
   }
 
-  // ✅ Fetch repo details + language
   async function fetchRepo(repoPath) {
     const [repoRes, langRes] = await Promise.all([
       fetch(`https://api.github.com/repos/${repoPath}`),
@@ -63,7 +63,6 @@
     };
   }
 
-  // ✅ Filter logic
   function matchFilter(tool, search, category) {
     const textMatch = tool.name.toLowerCase().includes(search.toLowerCase()) ||
       (tool.description || "").toLowerCase().includes(search.toLowerCase());
@@ -71,7 +70,6 @@
     return textMatch && categoryMatch;
   }
 
-  // ✅ Render tools
   async function renderTools() {
     container.innerHTML = "";
     pinnedContainer.innerHTML = "";
@@ -113,25 +111,26 @@
         </div>
       `;
 
-      if (matchFilter(tool, searchInput.value, categoryFilter.value)) {
-        (tool.pinned ? pinnedContainer : container).appendChild(card);
+      // ✅ Show in Featured if pinned
+      if (tool.pinned) {
+        pinnedContainer.appendChild(card);
+      } else {
+        container.appendChild(card);
       }
     });
 
     document.getElementById("loader").style.display = "none";
   }
 
-  // ✅ Listeners
   searchInput.addEventListener("input", renderTools);
   categoryFilter.addEventListener("change", renderTools);
 
   document.addEventListener("click", e => {
     if (e.target.classList.contains("readme-btn")) {
-      showReadmeModal(e.target.getAttribute("data-repo")); // Define this elsewhere
+      showReadmeModal(e.target.getAttribute("data-repo"));
     }
   });
 
-  // ✅ Start
   renderTools();
   AOS.init({ duration: 800, once: true });
 })();
