@@ -1,15 +1,19 @@
+// ✅ Define GitHub username ONCE
+let username = "kamrullab";
+
+// ✅ Select DOM elements
 const container = document.getElementById("tool-container");
 const pinnedContainer = document.getElementById("pinned-section");
 const categoryFilter = document.getElementById("categoryFilter");
 const searchInput = document.getElementById("searchInput");
 
-const username = "kamrullab"; // Your GitHub username
-
-// Optional overrides: pin/hide/category
+// ✅ Optional overrides (pin, hide, category)
 const overrides = {
-  // 'repo-name': { pin: true, hide: false, category: "Plugin" }
+  // Example:
+  // "repo-name": { pin: true, hide: false, category: "Plugin" }
 };
 
+// ✅ Get all public repos
 async function getAllRepos(username) {
   const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
   const repos = await res.json();
@@ -28,6 +32,7 @@ async function getAllRepos(username) {
     }));
 }
 
+// ✅ Fetch repo details + detect language
 async function fetchRepo(repoPath) {
   const [repoRes, langRes] = await Promise.all([
     fetch(`https://api.github.com/repos/${repoPath}`),
@@ -49,6 +54,7 @@ async function fetchRepo(repoPath) {
     }
   }
 
+  // Format known names
   if (primaryLang === "Batchfile") primaryLang = "CMD/Batch";
   if (primaryLang === "Shell") primaryLang = "Shell Script";
 
@@ -58,6 +64,7 @@ async function fetchRepo(repoPath) {
   };
 }
 
+// ✅ Match tool by search/category
 function matchFilter(tool, search, category) {
   const textMatch = tool.name.toLowerCase().includes(search.toLowerCase()) ||
     (tool.description || "").toLowerCase().includes(search.toLowerCase());
@@ -65,6 +72,7 @@ function matchFilter(tool, search, category) {
   return textMatch && categoryMatch;
 }
 
+// ✅ Render tools to UI
 async function renderTools() {
   container.innerHTML = "";
   pinnedContainer.innerHTML = "";
@@ -114,12 +122,13 @@ async function renderTools() {
   document.getElementById("loader").style.display = "none";
 }
 
+// ✅ Event listeners
 searchInput.addEventListener("input", renderTools);
 categoryFilter.addEventListener("change", renderTools);
 
 document.addEventListener("click", e => {
   if (e.target.classList.contains("readme-btn")) {
-    showReadmeModal(e.target.getAttribute("data-repo"));
+    showReadmeModal(e.target.getAttribute("data-repo")); // You must define this function elsewhere
   }
 });
 
