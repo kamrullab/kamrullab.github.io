@@ -3,7 +3,7 @@ const pinnedContainer = document.getElementById("pinned-section");
 const categoryFilter = document.getElementById("categoryFilter");
 const searchInput = document.getElementById("searchInput");
 
-const GITHUB_TOKEN = "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"; // Replace with your token
+const GITHUB_TOKEN = "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"; // Replace with your token
 
 // Fetch all public repos of the user
 async function getAllRepos(username) {
