@@ -1,11 +1,10 @@
+var username = "kamrullab"; // ✅ fixed
+
 const container = document.getElementById("tool-container");
 const pinnedContainer = document.getElementById("pinned-section");
 const categoryFilter = document.getElementById("categoryFilter");
 const searchInput = document.getElementById("searchInput");
 
-const username = "kamrullab"; // ✅ Define username
-
-// Optional overrides for pinning, hiding, or categorizing
 const overrides = {
   "azurechatgpt": { pin: true, category: "AI Tool" },
   "Activate-Gmail-for-Google-Workspace": { pin: true, category: "Email Setup" },
@@ -32,7 +31,7 @@ async function getAllRepos(username) {
     }));
 }
 
-// ✅ Fetch repo details + detect primary language (with fallback)
+// ✅ Fetch repo details + detect primary language
 async function fetchRepo(repoPath) {
   const [repoRes, langRes] = await Promise.all([
     fetch(`https://api.github.com/repos/${repoPath}`),
@@ -71,7 +70,7 @@ function matchFilter(tool, search, category) {
   return textMatch && categoryMatch;
 }
 
-// ✅ Render all tool cards
+// ✅ Render tools
 async function renderTools() {
   container.innerHTML = "";
   pinnedContainer.innerHTML = "";
@@ -94,9 +93,7 @@ async function renderTools() {
 
     const card = document.createElement("div");
     card.className = "tool-card";
-    if (tool.pinned) {
-      card.classList.add("pinned");
-    }
+    if (tool.pinned) card.classList.add("pinned");
     card.setAttribute("data-category", tool.category);
 
     const effects = ["fade-up", "fade-right", "fade-left"];
@@ -129,10 +126,9 @@ categoryFilter.addEventListener("change", renderTools);
 
 document.addEventListener("click", e => {
   if (e.target.classList.contains("readme-btn")) {
-    showReadmeModal(e.target.getAttribute("data-repo"));
+    showReadmeModal(e.target.getAttribute("data-repo")); // You must define this elsewhere
   }
 });
 
-// ✅ Start rendering
 renderTools();
 AOS.init({ duration: 800, once: true });
