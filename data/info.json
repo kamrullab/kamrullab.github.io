@@ -1,0 +1,82 @@
+// File: info.json
+{
+  "kamrul": {
+    "name": "Kamrul Hossain",
+    "tagline": "Full Stack Developer & Cyber Enthusiast",
+    "designation": "Founder, Kamrul Solutions",
+    "quote": "Keep building, keep evolving.",
+    "phone": "+8801712345678",
+    "email": "kamrul@example.com",
+    "logo": "https://cdn.kamrul.app/logo.png",
+    "logo_link": "https://kamrul.us",
+    "cv_link": "https://kamrul.us/cv.pdf",
+    "photo": "https://cdn.kamrul.app/profile.jpg",
+    "address": {
+      "village": "Sabai Bazar",
+      "post": "Tentulia",
+      "upazila": "Manda",
+      "district": "Naogaon",
+      "country": "Bangladesh"
+    },
+    "about": "I am Kamrul, passionate about open-source tools, WordPress automation, and WHMCS extensions.",
+    "education": {
+      "school": {
+        "name": "Tentulia High School",
+        "passing_year": "2012",
+        "group": "Science"
+      },
+      "college": {
+        "name": "Manda Degree College",
+        "passing_year": "2014",
+        "group": "Science"
+      },
+      "university": {
+        "name": "Bangladesh University of Business and Technology (BUBT)",
+        "degree": "BSS & MSS in Health Economics",
+        "status": "Completed (2024)"
+      }
+    },
+    "projects": [
+      {
+        "title": "SmartOrderX Pro",
+        "description": "Smart WhatsApp ordering system for eCommerce.",
+        "link": "https://kamrul.us/projects/smartorderx"
+      },
+      {
+        "title": "Custom Login Alert Pro",
+        "description": "Login notification plugin with email & messenger.",
+        "link": "https://kamrul.us/projects/login-alert"
+      },
+      {
+        "title": "Discord Alert Pro",
+        "description": "WHMCS ticket alert plugin via Discord.",
+        "link": "https://kamrul.us/projects/discord-alert"
+      }
+    ],
+    "skills": ["HTML", "CSS", "JavaScript", "PHP", "WordPress", "WHMCS", "Node.js", "Linux"],
+    "language_skills": ["Bengali", "English", "Hindi", "Spanish"],
+    "experience_years": "5+ years",
+    "freelance_available": true,
+    "working_hours": "10 AM – 10 PM (GMT+6)",
+    "theme_color": "#1d4ed8",
+    "footer_note": "<logo> {year}",
+    "custom_css": ".logo-img { border-radius: 12px; }",
+    "meta_description": "Kamrul is a full stack developer from Bangladesh.",
+    "meta_keywords": "kamrul, wordpress, whmcs, developer, bangladesh",
+    "theme_mode": "dark",
+    "contact_button": {
+      "type": "whatsapp",
+      "number": "+8801712345678"
+    },
+    "maintenance_mode": false,
+    "external_script": "https://cdn.kamrul.app/extra.js",
+    "social": {
+      "facebook": "https://facebook.com/elitekamrul",
+      "github": "https://github.com/elitekamrul",
+      "youtube": "https://youtube.com/@elitekamrul",
+      "linkedin": "https://linkedin.com/in/elitekamrul",
+      "telegram": "https://t.me/elitekamrul",
+      "whatsapp": "https://wa.me/8801712345678"
+    }
+  }
+}
