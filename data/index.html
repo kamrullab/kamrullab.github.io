@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="kamrul-site-id" content="kamrul" />
+  <title>Kamrul Embed Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .social-icon {
+      width: 24px;
+      margin: 0 5px;
+      vertical-align: middle;
+      transition: transform 0.2s;
+    }
+    .social-icon:hover {
+      transform: scale(1.2);
+    }
+    .logo-img {
+      height: 50px;
+      margin: 10px 0;
+    }
+    #footer-note {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body data-embed-id="kamrul">
+  <!-- Hidden Site ID -->
+  <div id="site-id" data-id="kamrul" style="display:none;"></div>
+
+  <!-- LOGO with link -->
+  <div class="section">
+    <h3>Logo with link</h3>
+    <div id="logo"></div>
+  </div>
+
+  <!-- LOGO without link -->
+  <div class="section">
+    <h3>Logo without link</h3>
+    <div id="logos"></div>
+  </div>
+
+  <!-- Name and Tagline -->
+  <div class="section">
+    <h3>Name</h3>
+    <div id="name" style="font-size:20px;font-weight:bold;"></div>
+    <h4>Tagline</h4>
+    <div id="tagline" style="color:#555;"></div>
+  </div>
+
+  <!-- Phone -->
+  <div class="section">
+    <h3>Phone (click to copy)</h3>
+    <div id="phone" style="font-size:18px;color:#1d4ed8;"></div>
+  </div>
+
+  <!-- Socials one by one -->
+  <div class="section">
+    <h3>Individual Social Links</h3>
+    <div id="facebook"></div>
+    <div id="github"></div>
+    <div id="youtube"></div>
+  </div>
+
+  <!-- Social Icons Row -->
+  <div class="section">
+    <h3>All Social Icons</h3>
+    <div id="social-icons"></div>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-note"></div>
+
+  <!-- Script -->
+  <script src="./core.js"></script>
+</body>
+</html>
