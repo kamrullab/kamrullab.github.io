@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Office 2016 Offline Installer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9fcfdb5dc5.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 30px;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      color: #eaeaea;
+    }
+    .link-box {
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 10px;
+      display: inline-block;
+      font-weight: 600;
+      margin: 15px auto;
+      max-width: 400px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .link-box i {
+      margin-right: 8px;
+    }
+    .link-box:hover {
+      background: #00ffaa;
+      color: #000;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .recommended {
+      background-color: red;
+      color: white;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 6px;
+      margin-left: 10px;
+      vertical-align: middle;
+      cursor: help;
+    }
+    .label {
+      margin-top: 20px;
+      color: #ffdddd;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    @media (max-width: 500px) {
+      h1 { font-size: 22px; }
+      .container { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Office 2016 Offline Installer</h1>
+    <p>If you're deploying, imaging, or installing offline, use these direct Microsoft .img files for Office 2016 editions:</p>
+
+    <div class="label">
+      Professional Edition
+      
+    </div>
+    <a class="link-box" href="https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/en-US/ProfessionalRetail.img" onclick="redirectHome()">
+      <i class="fas fa-download"></i> Download Office 2016 Professional (.img)
+    </a>
+
+    <div class="label">
+      Professional Plus Edition
+      <span class="recommended" title="Always Recommended">RECOMMENDED</span>
+    </div>
+    <a class="link-box" href="https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/en-US/ProPlusRetail.img" onclick="redirectHome()">
+      <i class="fas fa-download"></i> Download Office 2016 ProPlus (.img)
+    </a>
+  </div>
+
+  <script>
+    function redirectHome() {
+      setTimeout(() => {
+        window.location.href = "https://kamrul.us/soft/";
+      }, 5000);
+    }
+  </script>
+</body>
+</html>

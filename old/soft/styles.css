@@ -1,0 +1,112 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.5), rgba(0, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    overflow-x: hidden; /* Remove horizontal scroll */
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.navbar-brand {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: #ddd;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+h2 {
+    font-weight: 500;
+    color: #fff;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card-title {
+    font-weight: 500;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 190px;
+    overflow: hidden;
+}
+
+.centered-img {
+    width: 190px;
+    height: 86px;
+    object-fit: contain;
+}
+
+.magic-btn {
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.magic-btn:hover {
+    background: linear-gradient(45deg, #3333ff, #ff00cc);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.social-icons a {
+    margin: 0 15px;
+    transition: transform 0.2s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+#back-to-top {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: none;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background: #000;
+    color: #fff;
+}
+
+.heartbeat {
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}

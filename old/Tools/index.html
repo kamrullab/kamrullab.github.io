@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kamrul's Dev Tools</title>
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Kamrul's Dev Tools" />
+  <meta property="og:description" content="Explore free, open-source developer tools by Kamrul — from Windows tweak tools to WordPress plugins." />
+  <meta property="og:image" content="href="assets/preview.jpg" />
+  <meta property="og:url" content="https://kamrul.us/tools/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kamrul's Dev Tools" />
+  <meta name="twitter:description" content="Explore free, open-source developer tools by Kamrul — from Windows tweak tools to WordPress plugins." />
+  <meta name="twitter:image" content="href="assets/preview.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <meta name="description" content="A modern showcase of Kamrul's developer tools" />
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Main Style -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Loader -->
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <h1>Kamrul's Developer Tools</h1>
+      <div class="controls">
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+          <option value="Windows">Windows</option>
+          <option value="Linux">Linux</option>
+          <option value="WordPress">WordPress</option>
+	  <option value="Mail Service">Mail Service</option>
+	  <option value="Cloudflare">Cloudflare</option>
+	  <option value="Education Data">Education Data</option>
+          <option value="WHMCS">WHMCS</option>
+          <option value="AI">AI</option>
+        </select>
+        <input type="text" id="searchInput" placeholder="Search tools..." />
+        <button id="themeToggle">🌓</button>
+      </div>
+    </header>
+
+    <!-- Main Sections -->
+    <main>
+      <section id="pinned-wrapper" style="margin-bottom: 40px;">
+        <h2 class="section-title">⭐ Featured Tools</h2>
+        <div id="pinned-section" class="tool-grid"></div>
+      </section>
+
+      <section>
+        <h2 class="section-title">All Tools</h2>
+        <div id="tool-container" class="tool-grid"></div>
+      </section>
+    </main>
+
+    <!-- README Modal -->
+    <div id="readme-modal" class="modal hidden"></div>
+
+    <!-- Footer -->
+    <footer id="site-footer"></footer>
+
+  </div> <!-- /.container -->
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="components/modal.js"></script>
+  <script src="components/darkmode.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

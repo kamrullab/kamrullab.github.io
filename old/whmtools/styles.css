@@ -1,0 +1,154 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f5f5, #e3e3e3);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Main Container */
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 50px auto;
+    background: white;
+    padding: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Multi-Colored Title */
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.black { color: black; }
+.red { color: red; }
+.pink { color: hotpink; }
+
+/* Subtitle */
+.subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Input & Button Box */
+.input-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Input Field */
+input {
+    width: 60%;
+    padding: 12px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    text-align: center;
+}
+
+input:focus {
+    border-color: #0056b3;
+    box-shadow: 0px 0px 5px rgba(0, 91, 187, 0.5);
+}
+
+/* Generate Button - Improved Styling */
+.generate-btn {
+    background: linear-gradient(135deg, #28a745, #218838);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.3s;
+    font-weight: bold;
+    width: auto; /* Adjust width dynamically */
+    text-align: center;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Button Hover Effect */
+.generate-btn:hover {
+    background: linear-gradient(135deg, #218838, #1a682c);
+    transform: scale(1.08);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Icon */
+.generate-btn i {
+    font-size: 20px;
+}
+
+/* Command Box */
+.command-box {
+    background: white;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 5px solid #007bff;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: left;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Command Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Command Description */
+.command-description {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Command Text */
+.command-text {
+    display: block;
+    background: #f8f9fa;
+    padding: 8px;
+    font-family: monospace;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* Copy Button */
+.copy-btn {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    font-weight: bold;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003580);
+    transform: scale(1.05);
+}

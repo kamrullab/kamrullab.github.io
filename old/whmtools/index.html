@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WHM Command Generator - Easily Generate & Copy WHM Commands for Server Management. Simplify your WHM workflow with pre-built commands.">
+    <meta name="keywords" content="WHM, WHM Commands, Server Management, Hosting, cPanel, DNS, Terminal Commands,elitekamrul">
+    <meta name="author" content="Kamrul Hossain">
+    
+    <title>WHM Command Generator</title>
+
+    <!-- Open Graph Meta for Social Sharing -->
+    <meta property="og:title" content="(XID 4g3ue3) A DNS entry for “kamrul.us” already exists. You must remove this DNS entry from this server or all servers in the DNS cluster to proceed.">
+    <meta property="og:description" content="Generate and Copy WHM Commands for Efficient Server Management">
+    <meta property="og:image" content="https://www.ehostingserver.com/wp-content/uploads/2025/01/dns-entry-already-exists.png"> <!-- Replace with your image URL -->
+    <meta property="og:url" content="https://kamrul.us">
+    <meta property="og:type" content="kamrul.us/whmtools">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://kamrul.us/images/favicon.png"> <!-- Replace with your favicon URL -->
+
+   
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">
+            <span class="black">WHM</span> <span class="red">COMMAND</span> <span class="pink">GENERATOR</span>
+        </h1>
+        <p class="subtitle">Easily Generate and Copy WHM Commands for Server Management</p>
+
+        <div class="input-box">
+            <input type="text" id="domain" placeholder="Enter Domain (e.g., example.com)">
+            <button onclick="generateCommands()" class="generate-btn">
+              <i class="fas fa-terminal"></i> COMMAND GENERATE
+          </button>
+          
+        </div>
+
+        <div id="commands"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
