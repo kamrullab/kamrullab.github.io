@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Not Found | Kamrul Hossain</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+  <style>
+    body { background: #0d0208; color: #00ff41; font-family: 'Share Tech Mono', monospace; text-align: center; padding: 0; margin: 0; overflow: hidden; }
+    .matrix-bg-404 { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; opacity: 0.18; pointer-events: none; }
+    .error-container { margin-top: 12vh; position: relative; z-index: 1; }
+    .error-code { font-size: 7rem; font-weight: bold; text-shadow: 0 0 32px #00ff41, 0 0 64px #00ff41; letter-spacing: 0.1em; animation: codePulse 1.5s infinite alternate; }
+    @keyframes codePulse { 0% { text-shadow: 0 0 32px #00ff41, 0 0 64px #00ff41; } 100% { text-shadow: 0 0 64px #00ff41, 0 0 128px #00ff41; } }
+    .error-message { font-size: 2rem; margin-bottom: 2rem; animation: msgFade 2s infinite alternate; }
+    .error-message span { display: inline-block; background: linear-gradient(90deg, #00ff41, #00e0ff, #ff00ea, #ffae00, #00ff41); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 300% 300%; animation: gradientMove 3s linear infinite; }
+    .home-btn { background: linear-gradient(90deg, #ff00ea, #ffae00, #00e0ff, #00ff41, #ff00ea); background-size: 300% 300%; color: #0d0208; border: none; border-radius: 8px; padding: 0.5rem 1.5rem; font-size: 0.9rem; font-family: 'Share Tech Mono', monospace; cursor: pointer; transition: background-position 0.5s, color 0.3s, box-shadow 0.3s; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 0 16px 2px #00ff41; animation: gradientMove 3s linear infinite; }
+    .home-btn:hover { background-position: 100% 0; color: #fff; box-shadow: 0 0 32px 8px #00ff41; }
+    @keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+  </style>
+</head>
+<body>
+  <canvas id="matrix404" class="matrix-bg-404"></canvas>
+  <div class="error-container">
+    <div class="error-code">404</div>
+    <div class="error-message"><span>Page</span> <span>Not</span> <span>Found</span><br><span>It</span> <span>looks</span> <span>like</span> <span>you</span> <span>got</span> <span>lost</span> <span>in</span> <span>the</span> <span>matrix.</span></div>
+    <a href="/" class="home-btn">Return Home</a>
+  </div>
+  <script>
+    // Matrix rain animation for 404
+    const canvas = document.getElementById('matrix404');
+    const ctx = canvas.getContext('2d');
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    const letters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const fontSize = 18;
+    const columns = Math.floor(width / fontSize);
+    const drops = Array(columns).fill(1);
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(13,2,8,0.15)';
+      ctx.fillRect(0, 0, width, height);
+      ctx.font = fontSize + 'px monospace';
+      ctx.fillStyle = '#00ff41';
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    let matrixInterval = setInterval(drawMatrix, 33);
+    window.addEventListener('resize', () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    });
+  </script>
+</body>
+</html> 
