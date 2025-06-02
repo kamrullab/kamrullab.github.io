@@ -1541,3 +1541,9 @@ footer {
   0% { text-shadow: 0 0 8px #00ff41, 0 0 2px #00ff41; }
   100% { text-shadow: 0 0 16px #00ff41, 0 0 8px #00ff41; }
 } 
+
+.btn, .btn-success, .btn-outline-success {
+  padding: 0.35rem 0.85rem !important;
+  font-size: 0.92rem !important;
+  border-radius: 7px !important;
+} 
