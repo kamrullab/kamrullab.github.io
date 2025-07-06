@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://fixlab.kamrul.dev/sitemap.xml
