@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to Fastest Server...</title>
+  <script>
+    const servers = [
+      "http://103.230.140.222",     // Main IP
+      "http://103.230.104.203",     // Alternative 1
+      "http://103.230.107.235",     // Alternative 2
+      "http://103.230.107.233"      // Alternative 3
+    ];
+
+    const checkServer = (url) => {
+      return new Promise((resolve) => {
+        const start = Date.now();
+        fetch(url, { method: 'HEAD', mode: 'no-cors' })
+          .then(() => resolve({ url, time: Date.now() - start }))
+          .catch(() => resolve(null));
+      });
+    };
+
+    async function redirectToFastest() {
+      const checks = servers.map(checkServer);
+      const results = await Promise.all(checks);
+      const available = results.filter(Boolean);
+      if (available.length) {
+        const fastest = available.reduce((a, b) => (a.time < b.time ? a : b));
+        window.location.href = fastest.url;
+      } else {
+        document.body.innerHTML = "<h2>❌ All result servers are down. Please try again later.</h2>";
+      }
+    }
+
+    window.onload = redirectToFastest;
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 80px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      font-size: 22px;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Checking fastest result server... please wait.</h1>
+</body>
+</html>
