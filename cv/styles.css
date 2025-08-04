@@ -4,13 +4,15 @@ body {
     color: #333;
 }
 
-.a4-size {
-    width: 210mm;
-    height: 297mm;
-    padding: 20mm;
-    margin: auto;
-    background: #fff;
-}
+    .a4-size {
+        /* Constrain the CV to the actual A4 dimensions on all screen sizes. */
+        width: 210mm;
+        height: 297mm;
+        padding: 20mm;
+        margin: auto;
+        background: #fff;
+        box-sizing: border-box;
+    }
 
 h1, h2, h3 {
     color: #000000;
@@ -28,16 +30,35 @@ h1, h2, h3 {
     color: black;
 }
 
-.section-title {
-    background-color: #d3d3d3; /* Light gray color */
-    color: black;
-    padding: 5px; /* Consistent padding value */
-    margin: 20px 0;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-}
+    .section-title {
+        /* Use a soft grey background. */
+        background-color: #d9d9d9;
+        color: black;
+        padding: 5px;
+        margin: 20px 0;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /* Ensure that printing preserves the A4 sizing. */
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    @media print {
+        /* Force the printed document to match A4 */
+        html, body {
+            width: 210mm;
+            height: 297mm;
+        }
+        .a4-size {
+            width: 210mm;
+            height: 297mm;
+        }
+    }
 
 .table-bordered {
     border: 1px solid #000000;
@@ -47,6 +68,12 @@ h1, h2, h3 {
 .table-bordered th, .table-bordered td {
     border: 1px solid #000000;
 }
+
+    /* Shade table headers with the same soft grey used for section titles. */
+    .table.table-bordered thead th {
+        background-color: #d9d9d9;
+        color: black;
+    }
 
 .table th, .table td {
     padding: 0.75rem;
@@ -60,16 +87,19 @@ ul {
 }
 
 ul li {
-    padding-left: 1.5em;
-    text-indent: -1.5em;
+    /* Reduce indentation for bullet lists so they align more closely with the PDF layout */
+    padding-left: 1em;
+    text-indent: -1em;
 }
 
-ul li:before {
-    content: "•";
-    padding-right: 0.5em;
-    color: black;
-    font-weight: bold;
-}
+    ul li:before {
+        /* Use an arrow-like bullet to mirror the PDF list style. */
+        /* Use the same triangular arrow bullet seen in the PDF (➢). */
+        content: "\2022";
+        padding-right: 0.5em;
+        color: black;
+        font-weight: bold;
+    }
 
 .photo {
     width: 150px;
@@ -88,19 +118,71 @@ ul li:before {
 .company-name {
     font-style: italic;
     font-weight: bold;
-    color: #ff0101;
+    /* Use black colour for company names to match the PDF design */
+    color: #000;
 }
 
 
 
-@media (max-width: 768px) {
-    .text-right {
-        text-align: right;
-    }
+/* Keep contact information and photo aligned horizontally on all screen sizes */
+.contact-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
 
-    .a4-size {
-        width: 100%;
-        height: auto;
-        padding: 10mm;
-    }
+/* Ensure the contact information and photo columns maintain fixed widths on all screen sizes.
+   Setting both flex-basis and max-width prevents Bootstrap's default responsive
+   classes from overriding our layout on smaller screens (where Bootstrap
+   usually sets columns to 100% width). These values keep the desktop-like
+   arrangement even on mobile devices. */
+.contact-row .col-md-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+    min-width: 75%;
+}
+
+.contact-row .col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    min-width: 25%;
+    text-align: right;
+}
+
+/* Signature styles */
+.signature-container {
+    margin-top: 30px;
+}
+
+.signature-line {
+    width: 200px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 5px;
+}
+
+.signature-text {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.6em;
+}
+
+/* Printed name below the signature in a standard font */
+.signature-name {
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    font-weight: normal;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.signature-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 3px;
+}
+
+/* Force company names to be black regardless of other styles */
+.company-name {
+    font-style: italic;
+    font-weight: bold;
+    color: #000 !important;
 }
